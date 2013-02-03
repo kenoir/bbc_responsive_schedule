@@ -1,34 +1,21 @@
 <html>
   <head>
+		<link type="text/css" rel="stylesheet" href="normalize.css"/>
 		<link type="text/css" rel="stylesheet" href="main.css"/>
   </head>
   <body>
 
-	<div id="title_bar">
-		<span class="application_title">Responsive Scheduler</span>
-		<ol id="channels">
-
-			<li class="channel" id="bbc_one_channel">
-				<div class="channel_ident">
-					<span class="channel_name">BBC One</span>
-					<img src="placeholder.png"/>
-				</div>
-			</li>			
-
-			<li class="channel" id="bbc_two_channel">
-				<div class="channel_ident">
-					<span class="channel_name">BBC Two</span>
-					<img src="placeholder.png"/>
-				</div>
-			</li>
-
-		</ol>
+	<div id="title-bar">
+		<h1 class="application-title">Responsive Scheduler</h1>
 	</div>
 
-	<div id="content" class="schedule_list">
-		<div class="schedule" id="bbc_one_schedule">
-			
-			<div class="broadcast_focussed">
+	<div id="content" class="schedule-list">
+
+		<div class="schedule" id="bbc-one-schedule">
+			<span class="channel_schedule_ident">
+				BBC One
+			</span>
+			<div class="broadcast-focussed">
 				<div class="broadcast">
 					<img src="placeholder.png"/>
 					<div class="details">
@@ -39,7 +26,47 @@
 				</div>
 			</div>
 
-			<ol class="broadcast_list">
+			<ol class="broadcast-list">
+
+				<li class="broadcast">
+					<img src="placeholder.png"/>
+					<div class="details">
+						<span class="title">Broadcast</span>
+						<span class="time">12/12/12 12:34am</span>
+						<span class="description">Lorem ipsum ...</span>
+					</div>
+				</li>
+
+				<li class="broadcast">
+					<img src="placeholder.png"/>
+					<div class="details">
+						<span class="title">Broadcast</span>
+						<span class="time">12/12/12 12:34am</span>
+						<span class="description">Lorem ipsum ...</span>
+					</div>
+				</li>
+
+			</ol>
+		</div>
+
+		<div class="schedule" id="bbc-two-schedule">
+
+			<span class="channel_schedule_ident">
+				BBC Two 
+			</span>
+			
+			<div class="broadcast-focussed">
+				<div class="broadcast">
+					<img src="placeholder.png"/>
+					<div class="details">
+						<span class="title">Broadcast</span>
+						<span class="time">12/12/12 12:34am</span>
+						<span class="description">Lorem ipsum ...</span>
+					</div>
+				</div>
+			</div>
+
+			<ol class="broadcast-list">
 
 				<li class="broadcast">
 					<img src="placeholder.png"/>

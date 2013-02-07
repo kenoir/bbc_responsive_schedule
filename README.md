@@ -1,4 +1,4 @@
-# Responsive Scheduler
+# BBC Responsive Schedule
 
 This is an attempt to build a responsive schedule for BBC broadcast data.
 

@@ -15,14 +15,14 @@ define(
 	var CurrentBroadcastView = Backbone.View.extend({
 		className: "broadcast",			
 		initialize: function(){
-
+			
 		},				
 		render: function(channel_id){
 			var element = _.template( 
 				$("#current_broadcast_template").html(), 
 				{ 
 					title: this.model.attributes.title,
-					start_date: this.model.attributes.start_date
+					time: this.model.attributes.display_start_date("H:mma")
 				});
 
 			$("#" + channel_id + "_schedule .broadcast-focussed").replaceWith(element);

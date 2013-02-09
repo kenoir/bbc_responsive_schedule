@@ -2,6 +2,8 @@
 // http://liquidmedia.ca/blog/2011/01/backbone-js-part-1/
 // http://liquidmedia.org/blog/2011/01/an-intro-to-backbone-js-part-2-controllers-and-views/
 
+globalTimeOffsetInDays = 14;
+
 define(
 	[
 		'jquery',

@@ -19,7 +19,7 @@
 				<div class="broadcast-ident">
 					<div class="details">
 						<span class="title"><%= title %></span>
-						<span class="time"><%= start_date %></span>
+						<span class="time"><%= time %></span>
 					</div>
 				</div>
 			</div>
@@ -32,7 +32,7 @@
   		<li class="broadcast">
   			<div class="details">
 					<span class="title"><%= broadcast.title %></span>
-					<span class="time"><%= broadcast.start_date %></span>
+					<span class="time"><%= broadcast.display_start_date('H:mma') %></span>
   				<span class="description">Lorem ipsum ...</span>
   			</div>
   		</li>

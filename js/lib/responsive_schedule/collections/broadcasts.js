@@ -2,11 +2,13 @@ define(
 	[
 		'backbone',
 		'underscore',
+		'moment',
 		'responsive_schedule/models/broadcast',
 		'responsive_schedule/views/broadcasts'
 	], function(
 		Backbone,
 		_,
+		moment,
 		Broadcast,
 		BroadcastView	
 	){
@@ -25,10 +27,10 @@ define(
     	var collection = this;
 
 			collection.broadcasts_view = new BroadcastView({ model: this });
-						
+			// Deliberately offsetting the current date in order to get old info from the API 
 			this._meta = {			
 				channel_id: 'bbc_one',	
-				start_date: '2013-01-28',
+				start_date: moment().subtract('days', globalTimeOffsetInDays).format('YYYY-MM-DD'),
 				end_date: undefined
 			};
 			_.each(_.pairs(values),function(pair){
@@ -80,7 +82,23 @@ define(
 	});
 
 	Broadcasts.prototype.on_now = function(){
-		return this.first();
+		this.sortBy(function(broadcast){
+			return moment(broadcast.attributes.start_date).format("X");
+		});			
+
+		var time_now = moment().subtract('days', globalTimeOffsetInDays);
+		var on_now = undefined;
+		var last_on = undefined;
+
+		// TODO: This is time inefficient needs fixing
+		this.each(function(broadcast){
+			if(on_now == undefined && broadcast.attributes.moment_start_date().isAfter(time_now)){			
+				on_now = last_on;			
+			}
+			last_on = broadcast;
+		});
+
+		return on_now;
 	}
 
 	return Broadcasts;	

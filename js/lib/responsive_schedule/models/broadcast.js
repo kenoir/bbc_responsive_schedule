@@ -1,9 +1,11 @@
 define(
 	[
 		'backbone',
+		'moment',
 		'responsive_schedule/views/current_broadcast'
 	], function(
 		Backbone,
+		moment,
 		CurrentBroadcastView
 	){
 	
@@ -16,24 +18,18 @@ define(
 			duration: '',
 			title: '',
 			episode_pid: '',
-			image: ''
+			image: '',
+			display_start_date: function(format){
+				return moment(this.start_date).format(format);
+			},		
+			moment_start_date: function(){
+				return moment(this.start_date);
+			}
 		},	
 		initialize: function(){
 			this.current_broadcast_view = new CurrentBroadcastView({ model: this });
 		}
 	});			
-
-	Broadcast.format_date = function(){
-
-	}
-
-	Broadcast.prototype.start_date = function(){
-
-	}
-
-	Broadcast.prototype.start_date = function(){
-
-	}
 
 	return Broadcast;
 });

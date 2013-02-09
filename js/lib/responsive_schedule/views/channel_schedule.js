@@ -10,18 +10,19 @@ define(
 	){
 
 	var ChannelScheduleView = Backbone.View.extend({
-		className: "channel",			
+		className: "channelschedule",			
 		initialize: function(){
-
+			_.bindAll(this, 'render');
 		},				
-		render: function($container){
-			var name = this.model.get('name');			
-
+		render: function(){
 			var element = _.template( 
 				$("#schedule_template").html(), 
-				{ channel_display_name: this.model.get('name') }); 
+				{ 
+					channel_id: this.model.attributes.channel.id,			
+					channel_display_name: this.model.attributes.channel.get('name') 
+				});
 
-			$container.append(element);
+			$('#content').append(element);
 		}			
 	});				
 

@@ -8,19 +8,13 @@ define(
 		'backbone',
 		'underscore',
 		'responsive_schedule/router',
-		'responsive_schedule/models/channel',
-		'responsive_schedule/collections/channels',
-		'responsive_schedule/models/radio_times',
-		'responsive_schedule/views/channel_schedule'
+		'responsive_schedule/models/radio_times'
 	], function(
 		$, 
 		Backbone,
 		_,
 		Router,
-		Channel,
-		Channels,
-		RadioTimes,
-		ChannelScheduleView
+		RadioTimes
 	){
 
 	var start = function() {
@@ -28,22 +22,8 @@ define(
 			var app_router = new Router;
 
 			app_router.on('route:defaultRoute', function(actions) {
-
 				$schedule_container = $("#content");	
-
 				radio_times = new RadioTimes();
-				radio_times.channels.bind("add",function(channel){
-					console.log("Adding",channel.get("name"));
-				});
-				radio_times.channels.fetch({
-					success:function(channels){
-						channels.each(
-							function(channel){
-								var channel_schedule = new ChannelScheduleView({ model: channel });
-								channel_schedule.render($schedule_container );
-							});
-					}
-				});
 			});				
 
 			Backbone.history.start();

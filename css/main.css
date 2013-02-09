@@ -53,7 +53,10 @@ body {
 	margin: 0px;
 	padding: 0px;
 	background-color: white;
-	color: black
+	color: black;
+	overflow-x: hidden;
+	overflow-y: scroll;
+
 }
 #content div.schedule ol.broadcast-list li {
 	list-style-type:none;

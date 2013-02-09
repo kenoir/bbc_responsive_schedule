@@ -1,5 +1,4 @@
 // https://github.com/timrwood/moment/
-// http://stackoverflow.com/questions/4443070/given-an-associative-array-of-date-strings-find-the-next-closest-date
 
 define(
 	[

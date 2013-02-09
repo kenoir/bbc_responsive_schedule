@@ -10,13 +10,15 @@ define(
 		'backbone',
 		'underscore',
 		'responsive_schedule/router',
-		'responsive_schedule/models/radio_times'
+		'responsive_schedule/models/radio_times',
+		'responsive_schedule/models/bookmark_keeper'
 	], function(
 		$, 
 		Backbone,
 		_,
 		Router,
-		RadioTimes
+		RadioTimes,
+		BookmarkKeeper
 	){
 
 	var start = function() {
@@ -24,9 +26,12 @@ define(
 			var app_router = new Router;
 
 			app_router.on('route:defaultRoute', function(actions) {
-				$schedule_container = $("#content");	
 				radio_times = new RadioTimes();
 			});				
+
+			app_router.on('route:getBookmarks', function(actions) {
+				bookmark_keeper = new BookmarkKeeper();			
+			});
 
 			Backbone.history.start();
 		});

@@ -13,6 +13,15 @@
 	</head>
 	<body>
 
+	<script type="text/template" id="bookmarks_template">
+		<div id="bookmarks-container">
+			<% console.log(bookmarks); %>			
+			<h2>Bookmarks</h2>
+			<ul>
+				<li>Bookmark</li>
+			</ul>			
+		</div>		
+	</script>				
 	<script type="text/template" id="current_broadcast_template">
 		<div class="broadcast-focussed">
 			<div class="broadcast">
@@ -55,7 +64,8 @@
 	</script>
 
 	<div id="title-bar">
-		<h1 class="application-title">Responsive Scheduler</h1>
+		<h1 class="application-title"><a href="#">Responsive Scheduler</a></h1>
+		<a href="#/bookmarks">Bookmarks</a>
 	</div>
 
 	<div id="content" class="schedule-list">

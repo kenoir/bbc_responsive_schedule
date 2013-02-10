@@ -81,7 +81,28 @@ body {
 #content div.schedule ol.broadcast-list li.broadcast span.description {
 	display: none;
 }
-
+/* bookmarks */
+#bookmarks-container{
+    margin:5px;   
+}
+#bookmarks-container ul.bookmarks-list{
+    margin:0px;
+    padding:0px;          
+}
+#bookmarks-container li.bookmark {
+   list-style-type:none; 
+   position: relative;
+   max-width:300px;
+   height: 200px;
+   margin-bottom: 10px;
+}
+#bookmarks-container li.bookmark .details{
+    position: absolute;
+	bottom: 0px;
+	background-color: black;
+	background-color: rgba(0,0,0,0.7); 
+	font-size: 1.1em;
+}
 /* default: tablet landscape and desktop */
 body { font-size:100%;}
 #content div.schedule {

@@ -35,7 +35,13 @@
 	</script>				
 
 	<script type="text/template" id="bookmark_template">
-		<li>Bookmark: <%= title %></li>
+ 		<li class="bookmark">
+ 			<div class="details">
+				<span class="title"><%= title %></span>
+				<span class="time"><%= time %></span>
+				<a class="bookmark" href="#">Remove</a>
+ 			</div>
+ 		</li>
 	</script>
 
 	<script type="text/template" id="current_broadcast_template">

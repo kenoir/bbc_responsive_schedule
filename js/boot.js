@@ -5,6 +5,7 @@ requirejs.config({
 		backbone: "ext/backbone/backbone",
 		jquery: "ext/jquery/jquery",
 		moment: "ext/moment/moment",
+		store: "ext/store/store",
 		responsive_schedule: "responsive_schedule",
 		app: "responsive_schedule/models/app"
 	},	
@@ -20,10 +21,23 @@ requirejs.config({
 });
 
 // Start application and attach to window
-require(['app'], function(App){
+require(['app','store','moment'], function(App,store,moment){
+
+	// Hack to get and persist user id without asking			
+	var user_id = function(){
+		var id = store.get('user_id');
+
+		if(id == undefined){
+			id = moment().format('X'); 
+			store.set('user_id',id);
+		}
+
+		return id; 
+	}
+
 	window.Config = {
 		globalTimeOffsetInDays: 14,
-		user_id: '113003'
+		user_id: user_id() 
 	};			
 	window.App = new App();
 });

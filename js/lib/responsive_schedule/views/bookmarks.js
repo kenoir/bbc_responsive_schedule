@@ -23,6 +23,13 @@ define(
 			
 			$("#bookmarks-container .bookmarks").append(this.$el);
 
+			if(this.model.length == 0){
+				$("#bookmarks-container .bookmarks")
+					.html("<div class='notice'>No bookmarks yet!</div>");
+			} else {
+				$("#bookmarks-container .bookmarks .notice").hide();
+			}
+
 			this.model.each(function(bookmark){
 				bookmark.bookmark_view.render();			
 			});

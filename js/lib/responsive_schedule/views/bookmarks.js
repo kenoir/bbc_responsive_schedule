@@ -12,7 +12,10 @@ define(
 	var BookmarksView = Backbone.View.extend({
 		className: "bookmarks",
 		initialize: function(){
-
+			var view = this;			
+			this.model.bind('add',function(){
+				view.render();			
+			});
 		},
 		render: function(){
 			var template = _.template($("#bookmarks_template").html(),{});

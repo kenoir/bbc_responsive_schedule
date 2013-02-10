@@ -3,11 +3,13 @@ define(
 		'backbone',
 		'underscore',
 		'responsive_schedule/models/bookmark',
+		'responsive_schedule/models/broadcast',
 		'responsive_schedule/views/bookmarks'
 	], function(
 		Backbone,
 		_,
 		Bookmark,	
+		Broadcast,
 		BookmarksView
 	){
 
@@ -31,6 +33,7 @@ define(
       	dataType : 'json',
       	success : function(bookmarks_data) {
 					_.each(bookmarks_data,function(bookmark_data){
+						var bookmark = new Bookmark(bookmark_data);
 						collection.add(new Bookmark(bookmark_data));
 					});
 
@@ -39,7 +42,6 @@ define(
 					}
       	}
     	});
-		
 
 			if (!(typeof collection.fetch_options.success === 'undefined')){
 				collection.fetch_options.success(collection);

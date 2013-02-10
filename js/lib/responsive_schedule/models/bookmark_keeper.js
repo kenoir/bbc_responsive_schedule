@@ -29,12 +29,16 @@ define(
 	};
 
 	BookmarkKeeper.prototype.add_bookmark_for = function(broadcast){
+			var model = this;		
 			bookmark = new Bookmark({
 				user_id: Config.user_id,				
 				pid: broadcast.attributes.pid
 			});		
 
-			bookmark.save();
+			bookmark.save({ success: function(bookmark){
+				console.log("saved bookmark, adding to collection");			
+				model.bookmarks.add(bookmark);
+			}});
 	};
 
 	return BookmarkKeeper;

@@ -15,13 +15,19 @@ define(
 
 		},
 		render: function(){
+			var view = this;			
+			this.model.fetch_broadcast({success:function(model){
+				var template = _.template(
+					$("#bookmark_template").html(),
+					{ 
+						pid: model.attributes.pid,
+						title: model.meta("broadcast").attributes.title		
+				 	});
 
-			var template = _.template(
-				$("#bookmark_template").html(),{ pid: this.model.attributes.pid });
+				view.$el.html( template );
 
-			this.$el.html( template );
-
-			$(".bookmarks-list").append(this.$el);
+				$(".bookmarks-list").append(view.$el);
+			}});
 		},
 		events: {
 

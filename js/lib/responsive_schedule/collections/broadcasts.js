@@ -65,7 +65,9 @@ define(
 				})(),
       	dataType : 'json',
       	success : function(broadcasts_data) {
-					var broadcasts = _.flatten(_.map(_.values(broadcasts_data), function(broadcast_data){
+					var broadcasts = _.flatten(_.map(_.values(broadcasts_data), 
+						function(broadcast_data){
+
 						return _.map(broadcast_data,function(broadcast){
 							return new Broadcast(broadcast)			
 						});			

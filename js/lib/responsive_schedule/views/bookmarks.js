@@ -16,13 +16,15 @@ define(
 		},
 		render: function(){
 			var bookmarks = this.model.map(function(bookmark){ return bookmark.attributes; });			
-			this.$el = _.template(
+			var template = _.template(
 				$("#bookmarks_template").html(),
 				{ 
 					bookmarks: bookmarks,
 				});
 
-			$("#content").html(this.$el);
+			this.$el.html( template );
+
+			$("#content").html(this.el);
 		}
 					
 	});

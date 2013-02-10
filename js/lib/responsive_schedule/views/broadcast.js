@@ -15,16 +15,24 @@ define(
 
 		},
 		render: function(channel_id){
-			this.$el = _.template(
+			var template = _.template(
 				$("#broadcast_template").html(),
 				{ 
 					title: this.model.attributes.title,
 					time: this.model.attributes.display_start_date("H:mma")
 				});
 
+			this.$el.html( template );
+
 			$("#" + channel_id + "_schedule ol.broadcast-list").append(this.$el);
-		}
-					
+		},
+		events: {
+			"click a.bookmark": "addBookmark"
+		},
+		addBookmark: function(e){
+			console.log("add bookmark");			
+			e.preventDefault();			
+		}			
 	});
 
 	return BroadcastView;

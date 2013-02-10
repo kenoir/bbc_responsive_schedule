@@ -15,14 +15,14 @@ define(
 			_.bindAll(this, 'render');
 		},				
 		render: function(){
-			this.$el = _.template( 
+			this.el = _.template( 
 				$("#schedule_template").html(), 
 				{ 
 					channel_id: this.model.attributes.channel.id,			
 					channel_display_name: this.model.attributes.channel.get('name') 
 				});
 
-			$('#radiotimes .schedule-container').append(this.$el);
+			$('#radiotimes .schedule-container').append(this.el);
 		}			
 	});				
 

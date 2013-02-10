@@ -34,9 +34,5 @@ define(
 		}
 	});	
 
-	Broadcast.prototype.is_bookmarked = function(){
-
-	}	
-
 	return Broadcast;
 });

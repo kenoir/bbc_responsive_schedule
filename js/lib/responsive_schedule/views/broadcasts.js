@@ -15,10 +15,11 @@ define(
 
 		},
 		render: function(channel_id){
-			this.$el = _.template(
+			var template  = _.template(
 				$("#broadcasts_template").html(),{});
-			$("#" + channel_id + "_schedule .broadcast-list").replaceWith(this.$el);
+			$("#" + channel_id + "_schedule .broadcast-list").replaceWith(this.el);
 
+			this.$el.html( template );
 
 			this.model.each(function(broadcast){
 				broadcast.broadcast_view.render(channel_id);	

@@ -17,12 +17,14 @@ define(
 			
 		},				
 		render: function(channel_id){
-			this.$el = _.template( 
+			var template = _.template( 
 				$("#current_broadcast_template").html(), 
 				{ 
 					title: this.model.attributes.title,
 					time: this.model.attributes.display_start_date("H:mma")
 				});
+
+			this.$el.html( template );
 
 			$("#" + channel_id + "_schedule .broadcast-focussed").replaceWith(this.$el);
 			$("#" + channel_id + "_schedule .broadcast-focussed .broadcast-ident")

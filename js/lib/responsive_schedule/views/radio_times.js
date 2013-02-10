@@ -15,10 +15,12 @@ define(
 
 		},				
 		render: function(){
-			this.$el = _.template( 
+			var template = _.template( 
 				$("#radiotimes_template").html(),{}); 
 
-			$('#content').html(this.$el);
+			this.$el.html( template );
+
+			$('#content').html(this.el);
 		}			
 	});				
 

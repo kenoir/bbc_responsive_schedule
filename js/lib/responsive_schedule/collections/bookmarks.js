@@ -23,7 +23,8 @@ define(
 		},	
 		fetch: function(options){
    		var collection = this;
-
+			
+			console.log("getting bookmarks");
 			if(options == undefined) { var options = {}; }	
 			collection.fetch_options = options;
 

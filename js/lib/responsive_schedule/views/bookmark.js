@@ -32,7 +32,14 @@ define(
 			}});
 		},
 		events: {
-
+			"click a.bookmark": "removeBookmark"
+		},
+		removeBookmark: function(e){
+			var view = this;			
+			this.model.destroy({success:function(){
+				view.$el.hide();
+			}});
+			e.preventDefault();			
 		}
 	});
 

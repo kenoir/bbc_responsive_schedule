@@ -15,11 +15,11 @@ body {
 	font-size: 1.5em;
 	margin-top: 20px;
 }
-#title-bar a {text-decoration: none;} 
-#title-bar a:link {color:white;} 
-#title-bar a:visited {color:white;} 
-#title-bar a:hover {color:skyblue;} 
-#title-bar a:active {color:white;} 
+a {text-decoration: none;} 
+a:link {color:white;} 
+a:visited {color:white;} 
+a:hover {color:skyblue;} 
+a:active {color:white;} 
 #title-bar span.bookmarks {
 	position: absolute;
 	top: 4px;

@@ -31,9 +31,26 @@ define([
 				this._meta[prop] = value;
 			}
 		},
+		destroy: function(options){
+			var model = this;
+
+			console.log('attepting to destroy bookmark');
+			$.ajax({
+				type: "DELETE",
+				url: model.url(),
+				success: function(){
+					console.log('bookmark destroyed');
+					if (!(typeof options.success === 'undefined')){
+							options.success();
+					}
+				}
+			});			
+
+		},
 		save: function(options) { 
 			var model = this;
 
+			console.log('attepting to create bookmark');
 			$.ajax({
 				type: "POST",
 				url: model.url(),

@@ -25,6 +25,7 @@ define(
 	});	
 
 	BookmarkKeeper.updateBookmarks = function(bookmarks){
+		console.log("rendering bookmarks");			
 		bookmarks.bookmarks_view.render();
 	};
 

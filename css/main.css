@@ -75,6 +75,14 @@ a:active {color:white;}
 	list-style-type:none;
 	border-bottom: 1px solid black;
 }
+
+#content div.schedule ol.broadcast-list li a {
+	color:black;
+	font-size: 0.9em;
+} 
+#content div.schedule ol.broadcast-list li a:hover {color:skyblue;} 
+#content div.schedule ol.broadcast-list li a:visited {color:skyblue;} 
+
 #content div.schedule ol.broadcast-list li.broadcast img {
 	display:none;
 }
@@ -85,6 +93,7 @@ a:active {color:white;}
 #bookmarks-container{
     margin:5px;   
 }
+
 #bookmarks-container ul.bookmarks-list{
     margin:0px;
     padding:0px;          

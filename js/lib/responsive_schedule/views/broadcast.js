@@ -30,6 +30,7 @@ define(
 			"click a.bookmark": "addBookmark"
 		},
 		addBookmark: function(e){
+			this.$el.css('background-color','skyblue');			
 			App.bookmark_keeper.add_bookmark_for(this.model);
 			e.preventDefault();			
 		}			

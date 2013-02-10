@@ -37,8 +37,8 @@
 	<script type="text/template" id="bookmark_template">
  		<li class="bookmark">
  			<div class="details">
-				<span class="title"><%= title %></span>
-				<span class="time"><%= time %></span>
+				<span class="time"><%= time %></span> : 
+				<span class="title"><%= title %></span></br> 
 				<a class="bookmark" href="#">(Remove)</a>
  			</div>
  		</li>
@@ -49,8 +49,8 @@
 			<div class="broadcast">
 				<div class="broadcast-ident">
 					<div class="details">
-						<span class="title"><%= title %></span>
-						<span class="time"><%= time %></span>
+						<span class="title"><%= title %></span></br>
+						<span class="time">On now: started at <%= time %></span>
 					</div>
 				</div>
 			</div>
@@ -60,9 +60,9 @@
 	<script type="text/template" id="broadcast_template">
  		<li class="broadcast">
  			<div class="details">
-				<span class="title"><%= title %></span>
-				<span class="time"><%= time %></span>
-				<a class="bookmark" href="#">Bookmark</a>
+				<span class="time"><%= time %></span> :
+				<span class="title"><%= title %></span></br>
+				<a class="bookmark" href="#">(Add Bookmark)</a>
  			</div>
  		</li>
 	</script>

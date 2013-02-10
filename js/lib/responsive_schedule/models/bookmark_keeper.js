@@ -1,15 +1,25 @@
 define(
 	[
 		'backbone',
-		'responsive_schedule/collections/bookmarks'
+		'moment',
+		'responsive_schedule/views/bookmark_keeper',
+		'responsive_schedule/collections/bookmarks',
+		'responsive_schedule/models/bookmark'
 	], function(
 		Backbone,
-		Bookmarks
+		moment,
+		BookmarkKeeperView,
+		Bookmarks,
+		Bookmark
 	){	
 		
 	var BookmarkKeeper = Backbone.Model.extend({
 		initialize: function(){
-			this.bookmarks = new Bookmarks();
+			this.bookmarkkeeper_view = new BookmarkKeeperView();			
+			this.bookmarks = new Bookmarks({
+				url: 'http://rd-broadcast-bookmarks.herokuapp.com/bookmarks/' + Config.user_id				
+			});
+
 			//this.bookmarks.fetch({
 			//	success: function(bookmarks) { BookmarkKeeper.updateBookmarks(bookmarks); }
 			//});
@@ -21,6 +31,15 @@ define(
 		console.log(bookmarks);
 	};
 	*/
+
+	BookmarkKeeper.prototype.add_bookmark_for = function(broadcast){
+			bookmark = new Bookmark({
+				user_id: Config.user_id,				
+				pid: broadcast.attributes.pid
+			});		
+
+			bookmark.save();
+	};
 
 	return BookmarkKeeper;
 

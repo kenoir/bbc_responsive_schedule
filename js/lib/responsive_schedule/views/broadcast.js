@@ -30,7 +30,7 @@ define(
 			"click a.bookmark": "addBookmark"
 		},
 		addBookmark: function(e){
-			console.log("add bookmark");			
+			App.bookmark_keeper.add_bookmark_for(this.model);
 			e.preventDefault();			
 		}			
 	});

@@ -21,5 +21,9 @@ requirejs.config({
 
 // Start application and attach to window
 require(['app'], function(App){
+	window.Config = {
+		globalTimeOffsetInDays: 14,
+		user_id: '113003'
+	};			
 	window.App = new App();
 });

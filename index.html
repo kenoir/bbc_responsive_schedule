@@ -20,15 +20,23 @@
 		</div>
 	</script>
 
-	<script type="text/template" id="bookmarks_template">
+
+	<script type="text/template" id="bookmarkkeeper_template">
 		<div id="bookmarks-container">
-			<% console.log(bookmarks); %>			
 			<h2>Bookmarks</h2>
-			<ul>
-				<li>Bookmark</li>
-			</ul>			
+			<div class="bookmarks">
+			</div>				
 		</div>		
+	</script>
+
+	<script type="text/template" id="bookmarks_template">
+		<ul class="bookmarks-list">
+		</ul>			
 	</script>				
+
+	<script type="text/template" id="bookmark_template">
+		<li>Bookmark</li>
+	</script>
 
 	<script type="text/template" id="current_broadcast_template">
 		<div class="broadcast-focussed">

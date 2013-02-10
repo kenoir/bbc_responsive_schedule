@@ -25,7 +25,7 @@ define(
 			this.$el.html( template );
 			this.$el.hide();
 
-			$("#content").append(this.$el);
+			//$("#content").append(this.$el);
 		}
 					
 	});

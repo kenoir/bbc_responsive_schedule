@@ -1,14 +1,29 @@
 define(['backbone'], function(Backbone){
 
-	// TODO: Hard coded user!			
 	var Bookmark = Backbone.Model.extend({
-		urlRoot: 'http://rd-broadcast-bookmarks.herokuapp.com/bookmarks/113003',			
+		url: function(){
+			return 'http://rd-broadcast-bookmarks.herokuapp.com/bookmarks' + 
+					"/" + this.attributes.user_id + 
+					"/" + this.attributes.pid;
+		},			
 		defaults: {
 			user_id:'',
 			pid:'',
 			create_date:''		
 		},
 		initialize: function(){
+
+		},
+		sync: function(method, model, options) { 
+			var model = this;
+
+			$.ajax({
+				type: "POST",
+				url: model.url(),
+				success: function(){
+					console.log('bookmark posted');
+				}
+			});			
 
 		}
 	});

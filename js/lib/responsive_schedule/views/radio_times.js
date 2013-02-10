@@ -28,9 +28,7 @@ define(
 	});				
 
 	RadioTimesView.prototype.hide = function(){ this.$el.hide(); }
-	RadioTimesView.prototype.show = function(){ 
-		this.$el.show(); 
-	}
+	RadioTimesView.prototype.show = function(){ this.$el.show(); } 
 
 	return RadioTimesView;
 });

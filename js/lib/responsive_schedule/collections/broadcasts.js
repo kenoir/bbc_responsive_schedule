@@ -30,7 +30,7 @@ define(
 			// Deliberately offsetting the current date in order to get old info from the API 
 			this._meta = {			
 				channel_id: 'bbc_one',	
-				start_date: moment().subtract('days', globalTimeOffsetInDays).format('YYYY-MM-DD'),
+				start_date: moment().subtract('days', Config.globalTimeOffsetInDays).format('YYYY-MM-DD'),
 				end_date: undefined
 			};
 			_.each(_.pairs(values),function(pair){
@@ -86,11 +86,11 @@ define(
 			return moment(broadcast.attributes.start_date).format("X");
 		});			
 
-		var time_now = moment().subtract('days', globalTimeOffsetInDays);
+		var time_now = moment().subtract('days', Config.globalTimeOffsetInDays);
 		var on_now = undefined;
 		var last_on = undefined;
 
-		// TODO: This is time inefficient needs fixing
+		// TODO: This is time inefficient, needs fixing
 		this.each(function(broadcast){
 			if(on_now == undefined && broadcast.attributes.moment_start_date().isAfter(time_now)){			
 				on_now = last_on;			

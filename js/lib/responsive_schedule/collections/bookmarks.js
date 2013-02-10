@@ -13,7 +13,6 @@ define(
 
 	var Bookmarks = Backbone.Collection.extend({
 		model: Bookmark,
-    url: 'http://rd-broadcast-bookmarks.herokuapp.com/bookmarks/113003',
 		initialize: function(){
 			console.log("bookmark collection initialised");
 			this.fetch({

@@ -15,17 +15,14 @@ define(
 
 		},
 		render: function(){
-			var bookmarks = this.model.map(function(bookmark){ return bookmark.attributes; });			
-			var template = _.template(
-				$("#bookmarks_template").html(),
-				{ 
-					bookmarks: bookmarks,
-				});
-
+			var template = _.template($("#bookmarks_template").html(),{});
 			this.$el.html( template );
-			this.$el.hide();
+			
+			$("#bookmarks-container .bookmarks").append(this.$el);
 
-			//$("#content").append(this.$el);
+			this.model.each(function(bookmark){
+				bookmark.bookmark_view.render();			
+			});
 		}
 					
 	});

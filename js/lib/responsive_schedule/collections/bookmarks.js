@@ -12,24 +12,34 @@ define(
 	){
 
 	var Bookmarks = Backbone.Collection.extend({
+		url: 'http://rd-broadcast-bookmarks.herokuapp.com/bookmarks/', 			
 		model: Bookmark,
 		initialize: function(){
+   		var collection = this;
 			console.log("bookmark collection initialised");
-			this.fetch({
-				success: function(bookmarks){
-					bookmarks.bookmarks_view.render();
-				}
-			});				 
+			collection.bookmarks_view = new BookmarksView({model: this});
 		},	
 		fetch: function(options){
    		var collection = this;
-		
-			collection.bookmarks_view = new BookmarksView({model: this});
 
 			if(options == undefined) { var options = {}; }	
 			collection.fetch_options = options;
-			
-			collection.add([new Bookmark()]);
+
+	   	$.ajax({
+				type : 'GET',
+      	url : collection.url + Config.user_id + "/", 
+      	dataType : 'json',
+      	success : function(bookmarks_data) {
+					_.each(bookmarks_data,function(bookmark_data){
+						collection.add(new Bookmark(bookmark_data));
+					});
+
+					if (!(typeof collection.fetch_options.success === 'undefined')){
+						collection.fetch_options.success(collection);
+					}
+      	}
+    	});
+		
 
 			if (!(typeof collection.fetch_options.success === 'undefined')){
 				collection.fetch_options.success(collection);

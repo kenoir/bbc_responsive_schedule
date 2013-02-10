@@ -1,4 +1,10 @@
-define(['backbone'], function(Backbone){
+define([
+	'backbone',
+	'responsive_schedule/views/bookmark'
+	], function(
+	Backbone,
+	BookmarkView
+	){
 
 	var Bookmark = Backbone.Model.extend({
 		url: function(){
@@ -9,10 +15,11 @@ define(['backbone'], function(Backbone){
 		defaults: {
 			user_id:'',
 			pid:'',
-			create_date:''		
+			create_date:'',		
+			broadcast: undefined		
 		},
 		initialize: function(){
-
+			this.bookmark_view = new BookmarkView({ model: this });
 		},
 		sync: function(method, model, options) { 
 			var model = this;

@@ -15,17 +15,16 @@ define(
 
 		},
 		render: function(channel_id){
-			var broadcasts = this.model.map(function(broadcast){ return broadcast.attributes; });
-			var element = _.template(
-				$("#broadcasts_template").html(),
-				{ 
-					channel_id: channel_id,
-					broadcasts: broadcasts		
-				});
+			this.$el = _.template(
+				$("#broadcasts_template").html(),{});
+			$("#" + channel_id + "_schedule .broadcast-list").replaceWith(this.$el);
 
-			$("#" + channel_id + "_schedule .broadcast-list").replaceWith(element);
+
+			this.model.each(function(broadcast){
+				broadcast.broadcast_view.render(channel_id);	
+			});
+
 		}
-					
 	});
 
 	return BroadcastsView;

@@ -2,11 +2,13 @@ define(
 	[
 		'backbone',
 		'moment',
-		'responsive_schedule/views/current_broadcast'
+		'responsive_schedule/views/current_broadcast',
+		'responsive_schedule/views/broadcast'
 	], function(
 		Backbone,
 		moment,
-		CurrentBroadcastView
+		CurrentBroadcastView,
+		BroadcastView
 	){
 	
 	var Broadcast = Backbone.Model.extend({
@@ -28,6 +30,7 @@ define(
 		},	
 		initialize: function(){
 			this.current_broadcast_view = new CurrentBroadcastView({ model: this });
+			this.broadcast_view = new BroadcastView({ model: this });
 		}
 	});	
 

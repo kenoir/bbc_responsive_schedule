@@ -13,8 +13,8 @@ define(
 		className: "bookmarks",
 		initialize: function(){
 			var view = this;			
-			this.model.bind('add',function(){
-				view.render();			
+			this.model.bind('add',function(model){
+				model.bookmark_view.render();
 			});
 		},
 		render: function(){

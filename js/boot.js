@@ -6,7 +6,7 @@ requirejs.config({
 		jquery: "ext/jquery/jquery",
 		moment: "ext/moment/moment",
 		responsive_schedule: "responsive_schedule",
-		app: "responsive_schedule/app"
+		app: "responsive_schedule/models/app"
 	},	
 	shim: {
 		'backbone': {
@@ -19,6 +19,7 @@ requirejs.config({
   }
 });
 
-require(['app'], function(app){
-	app.start();
+// Start application and attach to window
+require(['app'], function(App){
+	window.App = new App();
 });

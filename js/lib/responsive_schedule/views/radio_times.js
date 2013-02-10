@@ -19,10 +19,18 @@ define(
 				$("#radiotimes_template").html(),{}); 
 
 			this.$el.html( template );
+			this.$el.hide();
 
-			$('#content').html(this.el);
+			$('#content').append(this.$el);
+
+			this.trigger('radiotimes:appended');
 		}			
 	});				
+
+	RadioTimesView.prototype.hide = function(){ this.$el.hide(); }
+	RadioTimesView.prototype.show = function(){ 
+		this.$el.show(); 
+	}
 
 	return RadioTimesView;
 });

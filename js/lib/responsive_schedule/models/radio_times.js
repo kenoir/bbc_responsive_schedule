@@ -16,13 +16,15 @@ define(
 	var RadioTimes = Backbone.Model.extend({
 		initialize: function(){
 			var model = this;
-						
-			this.radiotimes_view = new RadioTimesView();			
-			this.channels = new Channels();
-			this.channels.fetch({
+
+			model.radiotimes_view = new RadioTimesView();			
+			model.channels = new Channels();
+			
+			model.channels.fetch({
 				success: function(channels) { 
 					model.radiotimes_view.render();			
-					RadioTimes.updateChannelSchedules(channels); }
+					RadioTimes.updateChannelSchedules(channels); 
+				}
 			});
 		}
 	});	

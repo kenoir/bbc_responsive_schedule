@@ -23,8 +23,9 @@ define(
 				});
 
 			this.$el.html( template );
+			this.$el.hide();
 
-			$("#content").html(this.el);
+			$("#content").append(this.$el);
 		}
 					
 	});

@@ -11,8 +11,19 @@ body {
 }
 #title-bar h1.application-title {
 	margin:0px;
-	display: inline;
+	display: block;
 	font-size: 1.5em;
+	margin-top: 20px;
+}
+#title-bar a {text-decoration: none;} 
+#title-bar a:link {color:white;} 
+#title-bar a:visited {color:white;} 
+#title-bar a:hover {color:skyblue;} 
+#title-bar a:active {color:white;} 
+#title-bar span.bookmarks {
+	position: absolute;
+	top: 4px;
+	right: 4px;
 }
 
 /* Default content */
@@ -20,7 +31,9 @@ body {
 	width: 100%;
 	overflow: hidden;
 }
-
+#content h2 {
+	font-size: 1.3em;
+}
 #content div.schedule {
 	float: left;
 }

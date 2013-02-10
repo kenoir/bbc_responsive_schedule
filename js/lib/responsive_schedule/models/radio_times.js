@@ -3,24 +3,32 @@ define(
 		'backbone',
 		'responsive_schedule/collections/channels',
 		'responsive_schedule/collections/broadcasts',
-		'responsive_schedule/models/channel_schedule'
+		'responsive_schedule/models/channel_schedule',
+		'responsive_schedule/views/radio_times'
 	], function(
 		Backbone,
 		Channels,
 		Broadcasts,
-		ChannelSchedule
+		ChannelSchedule,
+		RadioTimesView
 	){	
 		
 	var RadioTimes = Backbone.Model.extend({
 		initialize: function(){
+			var model = this;
+						
+			this.radiotimes_view = new RadioTimesView();			
 			this.channels = new Channels();
 			this.channels.fetch({
-				success: function(channels) { RadioTimes.updateChannelSchedules(channels); }
+				success: function(channels) { 
+					model.radiotimes_view.render();			
+					RadioTimes.updateChannelSchedules(channels); }
 			});
 		}
 	});	
 
 	RadioTimes.updateChannelSchedules = function(channels){
+
 		channels.each(function(channel){
 			var broadcasts = new Broadcasts({
 				channel_id: channel.id	

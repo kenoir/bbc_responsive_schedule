@@ -29,7 +29,11 @@ define(
 		initialize: function(){
 			this.current_broadcast_view = new CurrentBroadcastView({ model: this });
 		}
-	});			
+	});	
+
+	Broadcast.prototype.is_bookmarked = function(){
+
+	}	
 
 	return Broadcast;
 });

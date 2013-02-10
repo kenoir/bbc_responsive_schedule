@@ -13,6 +13,13 @@
 	</head>
 	<body>
 
+	<script type="text/template" id="radiotimes_template">
+		<div id="radiotimes">
+			<div class="schedule-container">
+			</div>			
+		</div>
+	</script>
+
 	<script type="text/template" id="bookmarks_template">
 		<div id="bookmarks-container">
 			<% console.log(bookmarks); %>			
@@ -22,6 +29,7 @@
 			</ul>			
 		</div>		
 	</script>				
+
 	<script type="text/template" id="current_broadcast_template">
 		<div class="broadcast-focussed">
 			<div class="broadcast">
@@ -64,8 +72,9 @@
 	</script>
 
 	<div id="title-bar">
-		<h1 class="application-title"><a href="#">Responsive Scheduler</a></h1>
-		<a href="#/bookmarks">Bookmarks</a>
+		<h1 class="application-title"><a href="#">BBC Schedule</a></h1>
+		
+		<span class="bookmarks"><a href="#/bookmarks">Bookmarks</a></span>
 	</div>
 
 	<div id="content" class="schedule-list">

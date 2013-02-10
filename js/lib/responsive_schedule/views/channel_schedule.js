@@ -22,7 +22,9 @@ define(
 					channel_display_name: this.model.attributes.channel.get('name') 
 				});
 
-			$('#content').append(element);
+			//TODO: Need to replace rather than append for all schedules
+
+			$('#radiotimes .schedule-container').append(element);
 		}			
 	});				
 

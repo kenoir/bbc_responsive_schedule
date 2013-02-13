@@ -36,7 +36,7 @@ require(['app','store','moment'], function(App,store,moment){
 	}
 
 	window.Config = {
-		globalTimeOffsetInDays: 14,
+		globalTimeOffsetInDays: 21,
 		user_id: user_id() 
 	};			
 	window.App = new App();
